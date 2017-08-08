@@ -1,0 +1,22 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json",
+    "if": {
+        "allOf": [
+            {
+                "not": {
+                    "field": "tags",
+                    "containsKey": "createdDate"
+                }
+            },
+            {
+                "not": {
+                    "field": "tags",
+                    "containsKey": "environment"
+                }
+            }
+        ]
+    },
+    "then": {
+     "effect": "audit"   
+    }
+}
